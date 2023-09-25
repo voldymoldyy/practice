@@ -15,14 +15,22 @@ int main()
     int x;
     std::cout << "enter x: ";
     std::cin >> x;
-    int count = 0;
+
+    int great = 0;
+    int smol = 0;
 
     for (int i = 0; i < n; i++)
     {
         if (arr[i] <= x)
         {
-            count++;
+            great++;
+        }
+        else if (arr[i] >= x)
+        {
+            smol++;
         }
     }
-    std::cout << count;
+    std::cout << great;
+    std::cout << "\n";
+    std::cout << smol;
 }
