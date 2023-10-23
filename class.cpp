@@ -8,20 +8,34 @@ private:
 public:
     std::string m(std::string mod)
     {
-        mod = model;
-        return mod;
+        model = mod;
+        return model;
     }
 };
 
-class eingine : public cars
+class eingine
 {
 private:
-    std::string eingine = "turbo charged";
+    std::string eingine;
 
 public:
     std::string e(std::string eng)
     {
-        eng = eingine;
+        eingine = eng;
+        return eingine;
+    }
+};
+
+class choice : public eingine, public cars
+{
+private:
+    std::string choice;
+
+public:
+    void print()
+    {
+        std::cout << m;
+        std::cout << e;
     }
 };
 
@@ -35,8 +49,6 @@ int main()
     std::cout << "enter engine: ";
     std::cin >> eng;
 
-    cars ob;
-    eingine obb;
-    std::cout << obb.e(eng);
-    std::cout << obb.m(mo);
+    choice c;
+    c.print();
 }
