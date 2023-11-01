@@ -1,34 +1,55 @@
 #include <iostream>
 
-class op
+class clock
 {
-    int a;
+    int hours;
+    int mins;
+    int sec;
 
 public:
-    void geta()
+    void get()
     {
-        std::cout << "enter no: ";
-        std::cin >> a;
+        std::cout << "enter hours: ";
+        std::cin >> hours;
+        std::cout << "enter min: ";
+        std::cin >> mins;
+        std::cout << "enter sec: ";
+        std::cin >> sec;
     }
-    void printa()
+
+    clock operator+(clock c)
     {
-        std::cout << a;
+        clock d;
+        d.hours = hours + c.hours;
+        d.mins = mins + c.mins;
+        d.sec = sec + c.sec;
+        if (d.mins >= 60)
+        {
+            d.hours++;
+            d.mins = d.mins - 60;
+        }
+        if (d.sec >= 60)
+        {
+            d.mins++;
+            d.sec = d.sec - 60;
+        }
+        return d;
     }
-    op operator+(op op2)
+
+    void print()
     {
-        op op3;
-        op3.a = a + op2.a;
-        return op3;
+        std::cout << "time: ";
+        std::cout << hours;
+        std::cout << ": " << mins;
+        std::cout << ": " << sec;
     }
 };
 
 int main()
 {
-    op op1, op2, op3;
-    op1.geta();
-    op2.geta();
-    op3 = op1 + op2;
-    op1.printa();
-    op2.printa();
-    op3.printa();
+    clock b, c, d;
+    b.get();
+    d.get();
+    c = b + d;
+    c.print();
 }

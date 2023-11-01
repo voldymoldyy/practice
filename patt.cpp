@@ -1,41 +1,28 @@
 #include <iostream>
+
 int main()
 {
     int n;
     std::cout << "enter n: ";
     std::cin >> n;
 
-    int p[n];
-    p[0] = 1;
-    if (n == 1)
+    int arr[(2 * n) - 1];
+
+    for (int i = 0; i <= n; i++)
     {
-        std::cout << p[0];
-    }
-    else if (n > 1)
-    {
-        std::cout << p[0];
-        std::cout << "\n";
-        for (int i = 1; i < n; i++)
+        for (int j = 0; j < (2 * i) - 1; j++)
         {
-            if (p[i - 1] == 1)
+            if (arr[j] == 1)
             {
-                p[i] = 2;
-                for (int k = 0; k < i; k++)
-                {
-                    std::cout << p[k];
-                }
-                std::cout << p[i];
+                arr[j + 1] = 2;
+                std::cout << arr[j + 1];
             }
             else
             {
-                p[i] = 1;
-                for (int k = 0; k < i; k++)
-                {
-                    std::cout << p[k];
-                }
-                std::cout << p[i];
+                arr[j + 1] = 1;
+                std::cout << arr[j + 1];
             }
-            std::cout << "\n";
         }
+        std::cout << "\n";
     }
 }
